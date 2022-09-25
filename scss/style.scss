@@ -1,0 +1,14 @@
+@import './vars.scss';
+// CORE
+@import './core/core.scss';
+
+// GLOBALS
+@import './globals/header.scss';
+@import './globals/fonts.scss';
+
+// BASICS
+@import './basics/logo.scss';
+@import './basics/button.scss';
+
+// SECTIONS
+@import './sections/hero.scss';

@@ -1,0 +1,15 @@
+.Logo {
+  transition: all ease-in 0.2s;
+  width: 100px;
+  svg {
+    path {
+      fill: #e8c589;
+    }
+  }
+}
+
+header.sticky {
+  .Logo {
+    width: 70px;
+  }
+}
