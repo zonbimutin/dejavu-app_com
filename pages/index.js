@@ -4,6 +4,9 @@ import Reinsurance from '@sections/Reinsurance'
 import About from '@sections/About'
 import Features from 'sections/Features'
 import Screenshots from '@sections/Screenshots'
+import Prices from '@sections/Prices'
+import Team from '@sections/Team'
+import Faq from '@sections/Faq'
 
 export default function Home() {
   return (
@@ -17,7 +20,10 @@ export default function Home() {
       <Reinsurance />
       <About />
       <Features />
-      {/* <Screenshots /> */}
+      <Screenshots />
+      <Prices />
+      <Team />
+      <Faq />
     </div>
   )
 }

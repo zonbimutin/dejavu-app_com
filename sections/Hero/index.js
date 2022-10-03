@@ -9,7 +9,7 @@ export default function Hero() {
     <div id="home" className="Hero min-h-screen bg-background">
       <div className="container px-4 mx-auto">
         <div className="grid lg:grid-cols-12 items-center gap-4 relative">
-          <div className="lg:col-span-6 h-fit z-10">
+          <div className="lg:col-span-6 h-fit">
             <div className="Text flex flex-col gap-4 text-center lg:text-left">
               <h2 className="text-3xl text-white uppercase lg:text-7xl leading-relaxed lg:leading-snug">
                 Quand la fiction devient réalité
