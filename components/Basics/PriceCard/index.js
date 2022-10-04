@@ -1,7 +1,7 @@
 const PriceCard = ({ price }) => {
   const { title, subtitle, currency, features, link } = price
   return (
-    <div className="overflow-hidden rounded-lg border-2 border-primary flex flex-col">
+    <div className="w-[90%] mx-auto laptop:mx-0 laptop:max-w-[400px] lg:w-[400px] overflow-hidden rounded-lg border-2 border-primary flex flex-col">
       <div className="grid place-content-center text-center bg-backgroundLight bg-footer-texture bg-repeat bg-center bg-16 py-8">
         <h3 className="text-xl font-caviar">{title}</h3>
         <h3 className="text-[5em]">

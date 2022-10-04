@@ -12,8 +12,8 @@ export default function Footer() {
     >
       {/* <Newsletter /> */}
       <Section py="py-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 py-8">
-          <div>
+        <div className="grid grid-cols-1 place-content-center lg:grid-cols-4 gap-8 lg:gap-16 py-8">
+          <div className="mx-auto text-center">
             <div className="w-full">
               <Image src={'/img/logo_big.png'} width={300} height={200} />
             </div>
@@ -22,7 +22,7 @@ export default function Footer() {
               consectetur sed, convallis at tellus.
             </p>
           </div>
-          <div>
+          <div className="mx-auto text-center lg:text-start">
             <h4 className="font-caviar text-xl text-primary py-4">
               Quick Links
             </h4>
@@ -39,7 +39,7 @@ export default function Footer() {
               </Link>
             </ul>
           </div>
-          <div>
+          <div className="mx-auto text-center lg:text-start">
             <h4 className="font-caviar text-xl text-primary  py-4">
               Social Media
             </h4>
@@ -56,15 +56,14 @@ export default function Footer() {
               </Link>
             </ul>
           </div>
-          <div>
+          <div className="mx-auto text-center lg:text-start">
             <h4 className="font-caviar text-xl text-primary  py-4">Contact</h4>
             <div className="grid">
               <div className="mt-4 text-white">
                 8 Green Tower, Street Name <br />
                 New York City, USA
               </div>
-              <div className="font-inter text-white flex gap-2 mt-4">
-                Email :
+              <div className="font-inter text-white flex gap-2 mt-4 justify-center lg:justify-start">
                 <a
                   href="mailto:info@dejavu-app.com"
                   className="font-medium hover:text-primary mr-2"
@@ -72,8 +71,7 @@ export default function Footer() {
                   info@dejavu-app.com
                 </a>
               </div>
-              <div className="font-inter text-white flex gap-2 mt-4">
-                Tel :
+              <div className="font-inter text-white flex gap-2 mt-4 justify-center lg:justify-start">
                 <a
                   href="tel:+3307889944"
                   className="font-inter text-white font-medium hover:text-primary"

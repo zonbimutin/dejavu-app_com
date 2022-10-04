@@ -27,7 +27,7 @@ export default function Reinsurance() {
   return (
     <div className="py-16 bg-backgroundLight bg-footer-texture bg-repeat bg-center bg-16 bg-fixed">
       <div className="container px-4 mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-16">
+        <div className="grid laptop:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-16">
           {items.map((item, key) => {
             return (
               <div

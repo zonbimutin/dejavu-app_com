@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { FaMapMarkedAlt } from 'react-icons/fa'
+import Section from '@components/Basics/Section'
 import {
   GiFilmProjector,
   GiBackup,
@@ -33,7 +34,7 @@ export default function About() {
   }
 
   return (
-    <div id="about" className=" bg-background py-24">
+    <Section id="about" bg={'bg-background'}>
       <div className="container px-4 mx-auto">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
@@ -58,6 +59,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </div>
+    </Section>
   )
 }

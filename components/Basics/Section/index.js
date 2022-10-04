@@ -6,7 +6,7 @@ export default function Section({ children, py, bg, id, alt }) {
   let attr = {}
   if (id) attr.id = id
   return (
-    <div {...attr} className={`${py ? py : 'py-24 '} ${background}`}>
+    <div {...attr} className={`${py ? py : 'py-16 lg:py-24'} ${background}`}>
       <div className="container px-4 mx-auto">{children}</div>
     </div>
   )

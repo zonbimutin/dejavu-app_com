@@ -12,6 +12,21 @@ export default function Screenshots() {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1080,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          centerMode: true,
+        },
+      },
+    ],
   }
 
   const images = [1, 3, 2, 5, 6, 7, 8, 9, 0]
@@ -21,7 +36,7 @@ export default function Screenshots() {
       <Slider {...settings}>
         {images.map((value, key) => {
           return (
-            <div className="px-8">
+            <div className="lg:px-8 laptop:px-4 px-2">
               <Image
                 className="w-5"
                 src={'/img/iphone.png'}

@@ -50,7 +50,7 @@ const Prices = () => {
   return (
     <Section id="prices" bg="bg-background">
       <SectionHeader header={header} />
-      <div className="grid grid-cols-3 gap-20">
+      <div className="flex flex-wrap gap-16 lg:grid lg:grid-cols-3 lg:gap-20 justify-center">
         {prices.map((price, key) => {
           return <PriceCard price={price} key={key} />
         })}

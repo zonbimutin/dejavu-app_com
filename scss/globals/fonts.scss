@@ -68,6 +68,11 @@ h2 {
   font-size: 3rem;
   color: white;
   line-height: 3.5rem;
+
+  @media (max-width: 1280px) {
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+  }
 }
 
 p {

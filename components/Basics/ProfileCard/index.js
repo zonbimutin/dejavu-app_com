@@ -16,7 +16,7 @@ const SocialIcons = {
 const ProfileCard = ({ profile }) => {
   const { name, title, desc, image, socials } = profile
   return (
-    <div className="bg-gradient-to-r from-primary to-primaryLight rounded-lg overflow-hidden max-w-[250px]">
+    <div className="bg-gradient-to-r from-primary to-primaryLight rounded-lg overflow-hidden max-w-[200px] lg:max-w-[250px]">
       <Image src={image} width={300} height={300} />
       <div className="grid gap-2 p-4 text-center">
         <div>

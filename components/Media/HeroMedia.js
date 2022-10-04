@@ -36,13 +36,13 @@ export default function HeroMedia() {
     show: { opacity: 1, y: 0 },
   }
   return (
-    <div className="absolute bottom-0 right-0 w-[60%] h-full">
-      <div className="relative w-full h-[80%] flex justify-center pl-[10%]">
+    <div className="relative lg:absolute bottom-0 right-0 w-full lg:w-[60%] h-full">
+      <div className="relative w-full h-[80%] flex justify-center lg:pl-[10%]">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="absolute w-full h-[70%] bottom-[-200px]"
+          className="absolute w-full h-[70%] bottom-[-150px] lg:bottom-[-200px]"
         >
           <Image src={'/svg/map.svg'} layout="fill" />
         </motion.div>
@@ -53,8 +53,8 @@ export default function HeroMedia() {
           width={400}
           priority
         />
-        <div className="absolute w-full h-[70%] bottom-[-200px]">
-          <div className="relative w-full h-full">
+        <div className="absolute w-full h-[70%] bottom-[-130px] lg:bottom-[-200px]">
+          <div className="relative w-[90%] mx-auto lg:w-full h-full">
             {pointers.map((point, key) => {
               return (
                 <Pointer
