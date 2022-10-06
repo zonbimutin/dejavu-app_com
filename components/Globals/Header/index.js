@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 import Scrollspy from 'react-scrollspy'
 import { FiMenu, FiX } from 'react-icons/fi'
@@ -8,38 +9,41 @@ import Socials from '@components/Basics/Socials'
 
 import Logo from './Logo'
 
-export default function Header() {
-  const menu = {
-    links: [
-      {
-        id: 'home',
-        label: 'Accueil',
-      },
-      {
-        id: 'about',
-        label: 'A Propos',
-      },
-      {
-        id: 'features',
-        label: 'Features',
-      },
-    ],
-  }
+export default function Header({ header }) {
+  const { logo, socials, menu } = header
+  const [sticky, setSticky] = useState('')
 
-  const header = useRef()
+  // const menu = {
+  //   links: [
+  //     {
+  //       id: 'home',
+  //       label: 'Accueil',
+  //     },
+  //     {
+  //       id: 'about',
+  //       label: 'A Propos',
+  //     },
+  //     {
+  //       id: 'features',
+  //       label: 'Features',
+  //     },
+  //   ],
+  // }
 
   const items = menu
-    ? menu.links.map((link) => {
-        return link.id
+    ? menu.map((link) => {
+        return link.target
       })
     : []
 
   const onScroll = (e) => {
     let value = window.scrollY
     if (value > 50) {
-      header.current.classList.add('sticky')
+      // header.current.classList.add('sticky')
+      setSticky('sticky')
     } else if (value < 1) {
-      header.current.classList.remove('sticky')
+      // header.current.classList.remove('sticky')
+      setSticky('')
     }
   }
 
@@ -58,10 +62,10 @@ export default function Header() {
   }, [])
 
   return (
-    <header ref={header} className={`Header backdrop:px-2`}>
+    <header className={`Header backdrop:px-2 ${sticky}`}>
       <div className="container px-4 gap-4 flex flex-wrap justify-between items-center mx-auto">
         <div className="header-left flex items-center gap-4">
-          <Logo />
+          {logo && <Logo image={logo} />}
         </div>
         <div className="header-menu flex-grow lg:flex justify-between items-center">
           <nav className="menu">
@@ -71,9 +75,9 @@ export default function Header() {
               currentClassName="is-current"
               offset={-200}
             >
-              {menu.links.map((link, key) => (
+              {menu.map((link, key) => (
                 <li key={key} className="p-2">
-                  <Link href={`#${link.id}`}>
+                  <Link href={`${link.href}`}>
                     <a className="menu-item font-inter text-white font-medium hover:text-primary">
                       {link.label}
                     </a>
@@ -83,7 +87,7 @@ export default function Header() {
             </Scrollspy>
           </nav>
           <ul className="flex gap-4 h-fit">
-            <Socials />
+            {socials && socials.length && <Socials socials={socials} />}
           </ul>
           <div className="close-menu d-block d-lg-none hidden">
             <span onClick={() => openMenu(false)} className="closeTrigger">

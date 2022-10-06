@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { RiCloseLine } from 'react-icons/ri'
 
-const Accordion = ({ i, title, content, expanded, setExpanded }) => {
+const Accordion = ({ i, title, text, expanded, setExpanded }) => {
   const isOpen = i === expanded
   return (
     <div>
@@ -17,7 +17,7 @@ const Accordion = ({ i, title, content, expanded, setExpanded }) => {
         </motion.h3>
         <motion.div
           animate={{
-            rotate: isOpen ? '90deg' : '0deg',
+            rotate: isOpen ? '0deg' : '45deg',
             color: isOpen ? '#E8C589' : 'black',
           }}
           className="text-lg"
@@ -43,7 +43,7 @@ const Accordion = ({ i, title, content, expanded, setExpanded }) => {
               transition={{ duration: 0.5 }}
               className="text-white py-4"
             >
-              {content}
+              {text}
             </motion.div>
           </motion.section>
         )}
