@@ -3,15 +3,18 @@ import { motion } from 'framer-motion'
 import { GiFilmProjector } from 'react-icons/gi'
 import Section from '@components/Basics/Section'
 import SectionHeader from '@components/Basics/SectionHeader'
+import UploadImage from '@components/Basics/UploadImage'
 
-export default function Features() {
-  const header = {
-    title: 'L’histoire de l’application mobile Déjà-Vu',
-    subtitle: 'Caractéristiques',
-    // text: 'L’application Déjà-Vu regroupe tous les lieux de fiction à proximité de chez vous et dans le monde entier pour vous plonger dans des univers fantastiques, romanesques, de science-fiction et bien d’autres.',
-  }
+export default function Features({ data }) {
+  const { header, features, image } = data
 
-  const features = [1, 2, 3, 4, 5, 6]
+  // const header = {
+  //   title: 'L’histoire de l’application mobile Déjà-Vu',
+  //   subtitle: 'Caractéristiques',
+  //   // text: 'L’application Déjà-Vu regroupe tous les lieux de fiction à proximité de chez vous et dans le monde entier pour vous plonger dans des univers fantastiques, romanesques, de science-fiction et bien d’autres.',
+  // }
+
+  // const features = [1, 2, 3, 4, 5, 6]
 
   return (
     <Section id="features" bg="bg-background">
@@ -31,20 +34,21 @@ export default function Features() {
               }}
             />
           </div>
-          <Image
-            className="w-5"
-            src={'/img/iphone.png'}
-            width={500}
-            height={1000}
-            layout="intrinsic"
-          />
+          {image && <UploadImage image={image} />}
         </div>
 
         {features?.length && (
           <div className="lg:absolute mx-auto w-[70%] lg:w-full h-full grid lg:grid-cols-2">
             {features.map((feature, key) => {
               const odd = Boolean((key + 1) % 2)
-              return <FeatureCard key={key} odd={odd} index={key + 1} />
+              return (
+                <FeatureCard
+                  key={key}
+                  odd={odd}
+                  feature={feature}
+                  index={key + 1}
+                />
+              )
             })}
           </div>
         )}
@@ -53,7 +57,9 @@ export default function Features() {
   )
 }
 
-const FeatureCard = ({ odd, index }) => {
+const FeatureCard = ({ odd, index, feature }) => {
+  const { title, text, icon } = feature
+
   let translate = false
   let transition = ''
   if (index != 3 && index != 4) {
@@ -72,12 +78,14 @@ const FeatureCard = ({ odd, index }) => {
           !odd ? 'lg:flex-row' : 'lg:flex-row-reverse'
         }`}
       >
-        <GiFilmProjector size={'3rem'} />
-        <h4 className="text-white text-lg">Lorem ipsum</h4>
+        {icon && <UploadImage image={icon} />}
+        {title && <h4 className="text-white text-lg">{title}</h4>}
       </div>
-      <p className={`text-center ${odd ? 'lg:text-right' : 'lg:text-left'}`}>
-        For more than 5 years, we’ve been passionate about achieving better.
-      </p>
+      {text && (
+        <p className={`text-center ${odd ? 'lg:text-right' : 'lg:text-left'}`}>
+          {text}
+        </p>
+      )}
     </div>
   )
 }

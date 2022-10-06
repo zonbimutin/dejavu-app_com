@@ -18,18 +18,18 @@ const SocialIcons = {
   twitter: <FaTwitter />,
 }
 
-const Socials = () => {
+const Socials = ({ socials }) => {
   return (
     <>
-      {NETWORKS.map((social, key) => (
+      {socials.map((social, key) => (
         <a
           key={key}
           className="w-8 h-8 grid place-content-center aspect-square text-white hover:text-primary rounded-full border-solid border-2 border-white hover:border-primary "
-          href={`${social.link}`}
+          href={`${social.url}`}
           rel={`noopener`}
           target={`_blank`}
         >
-          {social.icon}
+          {SocialIcons[social.type]}
         </a>
       ))}
     </>

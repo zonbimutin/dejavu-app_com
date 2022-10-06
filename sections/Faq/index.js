@@ -16,11 +16,8 @@ const accordeons = [
   },
 ]
 
-const Faq = () => {
-  const header = {
-    title: 'Questions courantes de nos utilisateurs',
-    subtitle: 'FAQ',
-  }
+const Faq = ({ data }) => {
+  const { header, accordions } = data
 
   const [expanded, setExpanded] = useState(0)
 
@@ -28,9 +25,9 @@ const Faq = () => {
     <Section id="faq" bg="bg-background">
       <SectionHeader header={header} />
       <div className="grid grid-cols-1 lg:grid-cols-5">
-        {accordeons?.length && (
+        {accordions?.length && (
           <div className="col-span-3 grid gap-8">
-            {accordeons.map((acc, key) => {
+            {accordions.map((acc, key) => {
               return (
                 <Accordeon
                   key={key}

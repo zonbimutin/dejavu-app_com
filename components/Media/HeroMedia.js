@@ -1,7 +1,9 @@
+import UploadImage from '@components/Basics/UploadImage'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-export default function HeroMedia() {
+export default function HeroMedia({ image }) {
+  console.log(image)
   const pointers = [
     { x: '21%', y: '10%', size: 100 },
     { x: '50%', y: '40%', size: 60 },
@@ -35,9 +37,12 @@ export default function HeroMedia() {
     hidden: { opacity: 0, y: -200 },
     show: { opacity: 1, y: 0 },
   }
+
+  if (!image) return
+
   return (
-    <div className="relative lg:absolute bottom-0 right-0 w-full lg:w-[60%] h-full">
-      <div className="relative w-full h-[80%] flex justify-center lg:pl-[10%]">
+    <div className="relative lg:absolute bottom-0 right-0 w-full lg:w-[50%] h-full">
+      <div className="relative w-full flex justify-center lg:pr-[l0%] mr-0 ml-auto">
         <motion.div
           variants={container}
           initial="hidden"
@@ -46,13 +51,17 @@ export default function HeroMedia() {
         >
           <Image src={'/svg/map.svg'} layout="fill" />
         </motion.div>
-        <Image
+
+        {/* <Image
           src={'/svg/tel.svg'}
           layout="intrinsic"
           height={400}
           width={400}
           priority
-        />
+        /> */}
+        <div className="lg:w-[60%]">
+          <UploadImage image={image} />
+        </div>
         <div className="absolute w-full h-[70%] bottom-[-130px] lg:bottom-[-200px]">
           <div className="relative w-[90%] mx-auto lg:w-full h-full">
             {pointers.map((point, key) => {

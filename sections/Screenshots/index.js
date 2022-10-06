@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import Slider from 'react-slick'
 import Section from '@components/Basics/Section'
+import UploadImage from '@components/Basics/UploadImage'
 
-export default function Screenshots() {
+export default function Screenshots({ data }) {
+  const collection = data.collection?.data
+
+  if (!collection?.length) return
+
   const settings = {
     infinite: true,
     speed: 1000,
@@ -10,7 +15,7 @@ export default function Screenshots() {
     slidesToScroll: 1,
     centerMode: false,
     arrows: false,
-    autoplay: true,
+    autoplay: collection.length > 5,
     autoplaySpeed: 3000,
     responsive: [
       {
@@ -29,21 +34,13 @@ export default function Screenshots() {
     ],
   }
 
-  const images = [1, 3, 2, 5, 6, 7, 8, 9, 0]
-
   return (
     <Section alt>
       <Slider {...settings}>
-        {images.map((value, key) => {
+        {collection.map((value, key) => {
           return (
-            <div className="lg:px-8 laptop:px-4 px-2">
-              <Image
-                className="w-5"
-                src={'/img/iphone.png'}
-                width={500}
-                height={1000}
-                layout="intrinsic"
-              />
+            <div key={key} className="lg:px-8 laptop:px-4 px-2">
+              <UploadImage image={{ data: value }} />
             </div>
           )
         })}

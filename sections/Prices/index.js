@@ -2,49 +2,8 @@ import Section from '@components/Basics/Section'
 import SectionHeader from '@components/Basics/SectionHeader'
 import PriceCard from '@components/Basics/PriceCard'
 
-const prices = [
-  {
-    price: '30',
-    currency: '€',
-    title: 'Jour',
-    subtitle: 'per year',
-    features: [
-      '100 MB Disk Space',
-      '100 MB Disk Space',
-      '100 MB Disk Space',
-      '100 MB Disk Space',
-      '100 MB Disk Space',
-    ],
-    link: '#',
-  },
-  {
-    price: '30',
-    currency: '€',
-    title: 'Jour',
-    subtitle: 'per year',
-    features: [
-      '100 MB Disk Space',
-      '100 MB Disk Space',
-      '100 MB Disk Space',
-      '100 MB Disk Space',
-    ],
-    link: '#',
-  },
-  {
-    price: '30',
-    currency: '€',
-    title: 'Jour',
-    subtitle: 'per year',
-    features: ['100 MB Disk Space', '100 MB Disk Space', '100 MB Disk Space'],
-    link: '#',
-  },
-]
-
-const Prices = () => {
-  const header = {
-    title: 'Lorem ipsum madolor sit amet, consectetur adipisicing elit,',
-    subtitle: 'Nos Prix',
-  }
+const Prices = ({ data }) => {
+  const { header, prices } = data
 
   if (!prices?.length) return
   return (
