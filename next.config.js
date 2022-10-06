@@ -14,3 +14,9 @@ module.exports = {
     return config
   },
 }
+
+module.exports = {
+  images: {
+    domains: [`${process.env.MEDIA_PUBLIC_DOMAIN}`],
+  },
+}
