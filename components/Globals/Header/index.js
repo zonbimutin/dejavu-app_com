@@ -30,6 +30,8 @@ export default function Header({ header }) {
   //   ],
   // }
 
+  const headerRef = useRef()
+
   const items = menu
     ? menu.map((link) => {
         return link.target
@@ -49,8 +51,8 @@ export default function Header({ header }) {
 
   const openMenu = (bool) => {
     bool
-      ? header.current.classList.add('menu-open')
-      : header.current.classList.remove('menu-open')
+      ? headerRef.current.classList.add('menu-open')
+      : headerRef.current.classList.remove('menu-open')
   }
 
   useEffect(() => {
@@ -62,7 +64,7 @@ export default function Header({ header }) {
   }, [])
 
   return (
-    <header className={`Header backdrop:px-2 ${sticky}`}>
+    <header ref={headerRef} className={`Header backdrop:px-2 ${sticky}`}>
       <div className="container px-4 gap-4 flex flex-wrap justify-between items-center mx-auto">
         <div className="header-left flex items-center gap-4">
           {logo && <Logo image={logo} />}

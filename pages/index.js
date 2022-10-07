@@ -2,15 +2,6 @@ import client from '../apollo-client'
 import { GET_HOME } from '../gql/Pages'
 import Head from 'next/head'
 import Hero from '@sections/Hero'
-import Reinsurance from '@sections/Reinsurance'
-import About from '@sections/About'
-import Features from 'sections/Features'
-import Screenshots from '@sections/Screenshots'
-import Prices from '@sections/Prices'
-import Team from '@sections/Team'
-import Faq from '@sections/Faq'
-import { GiConsoleController } from 'react-icons/gi'
-import { gql } from '@apollo/client'
 import Sections from '@components/Basics/Sections/Sections'
 
 export default function Home({ home }) {
@@ -43,8 +34,6 @@ export async function getServerSideProps(context) {
       },
     }
   } catch (error) {
-    console.log(error)
-
     return { notFound: true }
   }
 }

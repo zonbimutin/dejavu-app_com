@@ -12,36 +12,14 @@ import UploadImage from '@components/Basics/UploadImage'
 export default function About({ data }) {
   const { header, features, image } = data
 
-  const about = {
-    title: 'L’histoire de l’application mobile Déjà-Vu',
-    subtitle: 'À propos',
-    text: 'L’application Déjà-Vu regroupe tous les lieux de fiction à proximité de chez vous et dans le monde entier pour vous plonger dans des univers fantastiques, romanesques, de science-fiction et bien d’autres.',
-    items: [
-      {
-        icon: <GiFilmProjector size={'4rem'} />,
-        label: 'Des lieux de tournage et d’inspiration ',
-      },
-      {
-        icon: <GiBananaPeel size={'4rem'} />,
-        label: 'Des circuits sur vos sagas et fictions préférées',
-      },
-      {
-        icon: <GiBackup size={'4rem'} />,
-        label: 'Une équipe de passionnés',
-      },
-      {
-        icon: <GiBallHeart size={'4rem'} />,
-        label: 'Des anecdotes et faits réconnus',
-      },
-    ],
-  }
-
   return (
     <Section id="about" bg={'bg-background'}>
       <div className="container px-4 mx-auto">
         <div className="grid lg:grid-cols-2 gap-16">
-          <div>{image && <UploadImage image={image} />}</div>
-          <div className="grid gap-6">
+          <div className="w-[70%] m-auto lg:w-full">
+            {image && <UploadImage image={image} />}
+          </div>
+          <div className="flex flex-col gap-6">
             {header && (
               <div>
                 {header.title && <h3 className="mb-2">{header.title}</h3>}
@@ -54,7 +32,11 @@ export default function About({ data }) {
                 {features.map((feature, key) => {
                   return (
                     <div key={key} className="p-4 text-primary">
-                      {feature.icon && <UploadImage image={feature.icon} />}
+                      {feature.icon && (
+                        <div className="w-[50px] h-[50px]">
+                          <UploadImage image={feature.icon} />
+                        </div>
+                      )}
                       {feature.text && (
                         <h5 className="mt-2 text-white">{feature.text}</h5>
                       )}

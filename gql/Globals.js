@@ -44,11 +44,17 @@ export const GET_GLOBALS = gql`
     socials {
       url
       type
+      label
     }
     contact {
       address
       phone
       email
+    }
+    terms {
+      label
+      href
+      target
     }
   }
 

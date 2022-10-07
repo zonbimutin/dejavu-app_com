@@ -8,14 +8,6 @@ import UploadImage from '@components/Basics/UploadImage'
 export default function Features({ data }) {
   const { header, features, image } = data
 
-  // const header = {
-  //   title: 'L’histoire de l’application mobile Déjà-Vu',
-  //   subtitle: 'Caractéristiques',
-  //   // text: 'L’application Déjà-Vu regroupe tous les lieux de fiction à proximité de chez vous et dans le monde entier pour vous plonger dans des univers fantastiques, romanesques, de science-fiction et bien d’autres.',
-  // }
-
-  // const features = [1, 2, 3, 4, 5, 6]
-
   return (
     <Section id="features" bg="bg-background">
       <SectionHeader header={header} />
@@ -75,11 +67,15 @@ const FeatureCard = ({ odd, index, feature }) => {
     >
       <div
         className={`flex flex-col gap-4 justify-start items-center mb-2 ${
-          !odd ? 'lg:flex-row' : 'lg:flex-row-reverse'
+          !odd ? 'lg:flex-row' : 'lg:flex-row-reverse text-right'
         }`}
       >
-        {icon && <UploadImage image={icon} />}
-        {title && <h4 className="text-white text-lg">{title}</h4>}
+        {icon && (
+          <div className="w-[50px]">
+            <UploadImage image={icon} />
+          </div>
+        )}
+        {title && <h4 className="text-white text-lg font-caviar">{title}</h4>}
       </div>
       {text && (
         <p className={`text-center ${odd ? 'lg:text-right' : 'lg:text-left'}`}>

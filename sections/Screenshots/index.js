@@ -21,13 +21,13 @@ export default function Screenshots({ data }) {
       {
         breakpoint: 1080,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           centerMode: true,
         },
       },

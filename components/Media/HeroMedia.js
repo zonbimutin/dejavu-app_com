@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function HeroMedia({ image }) {
-  console.log(image)
   const pointers = [
     { x: '21%', y: '10%', size: 100 },
     { x: '50%', y: '40%', size: 60 },
@@ -51,19 +50,11 @@ export default function HeroMedia({ image }) {
         >
           <Image src={'/svg/map.svg'} layout="fill" />
         </motion.div>
-
-        {/* <Image
-          src={'/svg/tel.svg'}
-          layout="intrinsic"
-          height={400}
-          width={400}
-          priority
-        /> */}
-        <div className="lg:w-[60%]">
+        <div className="w-[60%]">
           <UploadImage image={image} />
         </div>
         <div className="absolute w-full h-[70%] bottom-[-130px] lg:bottom-[-200px]">
-          <div className="relative w-[90%] mx-auto lg:w-full h-full">
+          <div className="relative w-[90%] mx-auto lg:w-full h-full overflow-hidden">
             {pointers.map((point, key) => {
               return (
                 <Pointer

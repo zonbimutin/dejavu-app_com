@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Accordeon from '@components/Basics/Accordeon'
 import Section from '@components/Basics/Section'
 import SectionHeader from '@components/Basics/SectionHeader'
+import UploadImage from '@components/Basics/UploadImage'
 
 const accordeons = [
   {
@@ -17,16 +18,16 @@ const accordeons = [
 ]
 
 const Faq = ({ data }) => {
-  const { header, accordions } = data
+  const { header, accordions, image } = data
 
   const [expanded, setExpanded] = useState(0)
 
   return (
     <Section id="faq" bg="bg-background">
       <SectionHeader header={header} />
-      <div className="grid grid-cols-1 lg:grid-cols-5">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-24">
         {accordions?.length && (
-          <div className="col-span-3 grid gap-8">
+          <div className="lg:col-span-3 flex flex-col gap-8">
             {accordions.map((acc, key) => {
               return (
                 <Accordeon
@@ -38,6 +39,13 @@ const Faq = ({ data }) => {
                 />
               )
             })}
+          </div>
+        )}
+        {image && (
+          <div className="lg:col-span-2 flex justify-center lg:justify-center w-full">
+            <div className="m-auto w-[50%] lg:w-[70%]">
+              <UploadImage image={image} />
+            </div>
           </div>
         )}
       </div>

@@ -174,6 +174,9 @@ export const GET_HOME = gql`
     header {
       ...sectionheader
     }
+    image {
+      ...image
+    }
     features {
       ...feature
     }

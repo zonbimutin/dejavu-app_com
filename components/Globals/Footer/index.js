@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Terms from './Terms'
 
 export default function Footer({ footer }) {
-  const { logo, quicklinks, socials, contact } = footer
+  const { logo, quicklinks, socials, contact, terms } = footer
   return (
     <div
       id="footer"
@@ -16,7 +16,9 @@ export default function Footer({ footer }) {
       <Section py="py-4">
         <div className="grid grid-cols-1 place-content-center lg:grid-cols-4 gap-8 lg:gap-16 py-8">
           <div className="mx-auto text-center">
-            <div className="w-full">{logo && <UploadImage image={logo} />}</div>
+            <div className="w-[70%] m-auto lg:w-full">
+              {logo && <UploadImage image={logo} />}
+            </div>
           </div>
           {quicklinks && Boolean(quicklinks.length) && (
             <div className="mx-auto text-center lg:text-start">
@@ -25,10 +27,11 @@ export default function Footer({ footer }) {
               </h4>
               <ul className="grid">
                 {quicklinks.map((link, key) => {
+                  console.log(link)
                   return (
-                    <Link href={link.href}>
+                    <Link href={`${link.href}`} key={key}>
                       <a className="font-inter text-white font-medium hover:text-primary mt-4">
-                        {link.lanel}
+                        {link.label}
                       </a>
                     </Link>
                   )
@@ -44,9 +47,9 @@ export default function Footer({ footer }) {
               <ul className="grid">
                 {socials.map((link, key) => {
                   return (
-                    <Link href={link.href}>
+                    <Link href={`${link.href}`} key={key}>
                       <a className="font-inter text-white font-medium hover:text-primary mt-4">
-                        {link.lanel}
+                        {link.label}
                       </a>
                     </Link>
                   )
@@ -64,13 +67,13 @@ export default function Footer({ footer }) {
                 {contact.address && (
                   <div className="mt-4 text-white">{contact.address}</div>
                 )}
-                {contact.mail && (
+                {contact.email && (
                   <div className="font-inter text-white flex gap-2 mt-4 justify-center lg:justify-start">
                     <a
-                      href={`mailto:${contact.mail}`}
+                      href={`mailto:${contact.email}`}
                       className="font-medium hover:text-primary mr-2"
                     >
-                      {contact.mail}
+                      {contact.email}
                     </a>
                   </div>
                 )}
@@ -89,7 +92,7 @@ export default function Footer({ footer }) {
           )}
         </div>
       </Section>
-      <Terms />
+      <Terms terms={terms} />
     </div>
   )
 }

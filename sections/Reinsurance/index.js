@@ -35,11 +35,13 @@ export default function Reinsurance({ data }) {
             return (
               <div
                 key={key}
-                className="p-4 lg:p-10 bg-gradient-to-r from-primary to-primaryLight rounded-lg"
+                className="mx-12 lg:mx-0 p-4 lg:p-10 bg-gradient-to-r from-primary to-primaryLight rounded-lg"
               >
-                <div className="flex flex-col gap-4 items-center">
+                <div className="flex flex-col gap-4 items-center text-center">
                   {feature.icon && (
-                    <UploadImage image={feature.icon} size={'4rem'} />
+                    <div className="w-[60px] h-[60px] lg:w-[100px] lg:h-[100px]">
+                      <UploadImage image={feature.icon} size={'4rem'} />
+                    </div>
                   )}
                   {feature.title && (
                     <h3 className="text-xl text-black">{feature.title}</h3>
