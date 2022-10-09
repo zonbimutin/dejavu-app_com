@@ -16,7 +16,7 @@ export default function About({ data }) {
     <Section id="about" bg={'bg-background'}>
       <div className="container px-4 mx-auto">
         <div className="grid lg:grid-cols-2 gap-16">
-          <div className="w-[70%] m-auto lg:w-full">
+          <div className="w-[70%] m-auto ">
             {image && <UploadImage image={image} />}
           </div>
           <div className="flex flex-col gap-6">

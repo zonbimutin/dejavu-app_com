@@ -27,7 +27,6 @@ export default function Footer({ footer }) {
               </h4>
               <ul className="grid">
                 {quicklinks.map((link, key) => {
-                  console.log(link)
                   return (
                     <Link href={`${link.href}`} key={key}>
                       <a className="font-inter text-white font-medium hover:text-primary mt-4">

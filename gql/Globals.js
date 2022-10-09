@@ -64,6 +64,10 @@ export const GET_GLOBALS = gql`
         url
         width
         height
+        previewUrl
+        size
+        caption
+        ext
       }
     }
   }
