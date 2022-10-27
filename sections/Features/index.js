@@ -12,8 +12,8 @@ export default function Features({ data }) {
     <Section id="features" bg="bg-background">
       <SectionHeader header={header} />
       <div className="grid lg:flex justify-center relative ">
-        <div className="w-[50%] lg:w-[25%] relative m-auto">
-          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[90%]">
+        <div className="w-[50%] lg:w-[25%] relative m-auto mb-8 lg:mb-0">
+          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[90%] overflow-hidden">
             <motion.div
               className="spin m-auto aspect-square h-full  border-8 rounded-full border-spacing-4 border-primary border-dashed"
               animate={{
