@@ -1,4 +1,5 @@
 import { GET_GLOBALS } from '../gql/Globals'
+import { ApolloProvider } from '@apollo/client'
 import client from '../apollo-client'
 import Header from '@components/Globals/Header'
 import Footer from '@components/Globals/Footer'
@@ -8,11 +9,14 @@ import '../scss/style.scss'
 
 function MyApp({ Component, pageProps, globals }) {
   const { header, footer } = globals
+
   return (
     <>
       <div className="bg-background h-full">
         <Header header={header} />
-        <Component {...pageProps} />
+        <ApolloProvider client={client}>
+          <Component {...pageProps} />
+        </ApolloProvider>
         <Footer footer={footer} />
       </div>
     </>
