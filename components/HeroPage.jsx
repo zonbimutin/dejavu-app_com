@@ -20,7 +20,7 @@ export default ({ title, image, excerpt, publishedAt }) => {
 }
 
 function HeroImage({ image }) {
-  const { width, url, height } = image.data.attributes
+  const { width, url, height, alternativeText } = image.data.attributes
 
   return (
     <div className="absolute top-0 left-0 w-full h-full -z-10 opacity-30">
@@ -28,6 +28,7 @@ function HeroImage({ image }) {
         src={url}
         width={width}
         height={height}
+        alt={alternativeText ? alternativeText : 'Dejavu image'}
         layout="fill"
         className="object-cover"
       />

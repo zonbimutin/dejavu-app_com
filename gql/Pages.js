@@ -43,6 +43,10 @@ export const GET_HOME = gql`
         url
         width
         height
+        alternativeText
+        caption
+        formats
+        previewUrl
       }
     }
   }
@@ -59,6 +63,22 @@ export const GET_HOME = gql`
 
   fragment seo on ComponentSharedSeo {
     metaTitle
+    metaDescription
+    keywords
+    metaRobots
+    metaViewport
+    structuredData
+    canonicalURL
+    metaImage {
+      ...image
+    }
+    metaSocial {
+      ... on ComponentSharedMetaSocial {
+        title
+        socialNetwork
+        description
+      }
+    }
   }
 
   fragment herohome on ComponentSectionHeroHome {

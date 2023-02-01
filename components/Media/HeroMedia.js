@@ -77,7 +77,12 @@ export default function HeroMedia({ image }) {
             variants={container}
             className="absolute w-full bottom-[-100px] lg:bottom-[-160px]"
           >
-            <Image src={'/img/map.png'} width={1200} height={382} />
+            <Image
+              src={'/img/map.png'}
+              width={1200}
+              height={382}
+              alt="Map image"
+            />
           </motion.div>
           <div className="w-[80%] lg:w-[60%]">
             <UploadImage image={image} />
@@ -130,7 +135,12 @@ const Pointer = ({ x, y, scale, delay, variant }) => {
         type: 'spring',
       }}
     >
-      <Image src={'/img/bitmap.png'} width={100} height={161} />
+      <Image
+        src={'/img/bitmap.png'}
+        width={100}
+        height={161}
+        alt="Marker image"
+      />
     </motion.div>
   )
 }

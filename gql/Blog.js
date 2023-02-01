@@ -15,6 +15,8 @@ export const GET_BLOG_POSTS = gql`
                   previewUrl
                   url
                   formats
+                  alternativeText
+                  caption
                 }
               }
             }
@@ -46,6 +48,10 @@ export const GET_BLOG_POST = gql`
                     url
                     previewUrl
                     height
+                    alternativeText
+                    caption
+                    formats
+                    previewUrl
                   }
                 }
               }
