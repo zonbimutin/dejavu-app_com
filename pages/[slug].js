@@ -1,15 +1,37 @@
 import client from '../apollo-client'
 import { GET_PAGE } from '../gql/Pages'
-import Error from 'next/error'
 import Error404 from '@components/Globals/Error404/Error404'
+import HeroPage from '@components/HeroPage'
+import Markdown from '@components/Markdown'
 
-const Page = ({ data }) => {
-  if (!data) return <Error404 />
+import Head from 'next/head'
 
-  return <div>Hello world</div>
+export default ({ data }) => {
+  if (!data) return null
+
+  const { title, dynamic, thumbnail, excerpt, publishedAt } = data
+
+  return (
+    <div>
+      <Head>
+        <title>{`Deja vu - ${title}`}</title>
+        <meta name="description" content="Application deja vu" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <HeroPage
+        title={title}
+        image={thumbnail}
+        excerpt={excerpt}
+        publishedAt={publishedAt}
+      />
+      <div className="container px-4 mx-auto py-24 whitespace-pre-line text-white grid place-items-center">
+        <div className="lg:max-w-[70%]">
+          {dynamic[0]?.content && <Markdown text={dynamic[0].content} />}
+        </div>
+      </div>
+    </div>
+  )
 }
-
-export default Page
 
 export async function getServerSideProps(context) {
   try {
@@ -21,12 +43,14 @@ export async function getServerSideProps(context) {
       fetchPolicy: 'no-cache',
     })
 
+    console.log(data)
+
     return {
       props: {
-        data: data.page.data.attributes,
+        data: data.findSlug.data.attributes,
       },
     }
   } catch (error) {
-    return { props: { data: false } }
+    return { notFound: true }
   }
 }

@@ -18,7 +18,24 @@ export default function Home({ home }) {
   )
 }
 
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
+//   try {
+//     const { data } = await client.query({
+//       query: GET_HOME,
+//       fetchPolicy: 'no-cache',
+//     })
+
+//     return {
+//       props: {
+//         home: data.home.data.attributes,
+//       },
+//     }
+//   } catch (error) {
+//     return { notFound: true }
+//   }
+// }
+
+export async function getStaticProps() {
   try {
     const { data } = await client.query({
       query: GET_HOME,

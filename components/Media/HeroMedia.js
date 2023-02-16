@@ -104,19 +104,21 @@ export default function HeroMedia({ image }) {
                   />
                 )
               })}
-              {/* {clouds.map((point, key) => {
-                return (
-                  <Cloud
-                    key={key}
-                    x={point.x}
-                    y={point.y}
-                    size={point.size}
-                    delay={key / 10 + 1.6}
-                  />
-                )
-              })} */}
             </motion.div>
           </div>
+          <motion.div
+            variants={pointerAnim}
+            className="absolute h-[50%] bottom-[20px] lg:bottom-[-20px]"
+          >
+            <Image
+              src={'/img/tour_eiffiel.png'}
+              width={101}
+              height={221}
+              fill
+              className="object-contain"
+              alt="Tour eifiel image"
+            />
+          </motion.div>
         </div>
       </motion.div>
     </div>

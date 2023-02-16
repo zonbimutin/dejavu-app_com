@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default ({ title, image, excerpt, publishedAt }) => {
   return (
     <div className="Hero Hero-page py-5 bg-background bg-footer-texture bg-repeat bg-center bg-16 bg-fixed isolate relative">
-      {image && <HeroImage image={image} />}
+      {image?.data?.attributes && <HeroImage image={image} />}
       <div className="container px-4 mx-auto grid place-items-center text-center">
         <div className="lg:max-w-[70%]">
           <h1 className="text-white">{title}</h1>

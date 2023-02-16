@@ -5,7 +5,32 @@ export const GET_PAGE = gql`
     findSlug(modelName: "page", slug: $slug) {
       ... on PageEntityResponse {
         data {
-          id
+          attributes {
+            title
+            excerpt
+            dynamic {
+              ... on ComponentSectionText {
+                content
+              }
+            }
+            publishedAt
+            thumbnail {
+              ... on UploadFileEntityResponse {
+                data {
+                  attributes {
+                    width
+                    url
+                    previewUrl
+                    height
+                    alternativeText
+                    caption
+                    formats
+                    previewUrl
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
