@@ -18,7 +18,10 @@ export default () => {
   if (!posts) return null
 
   return (
-    <div id="blog" className="grid  grid-cols-2 lg:grid-cols-4 md:grid-cols-3">
+    <div
+      id="blog"
+      className="grid  grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-8"
+    >
       {posts.map((post, key) => {
         return <BlogPost key={key} {...post} />
       })}
